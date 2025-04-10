@@ -1,0 +1,58 @@
+{
+  "employees": [
+    {
+      "uuid": "e1",
+      "firstName": "Jon",
+      "lastName": "Doe",
+      "role": "Senior Engineer",
+      "gitHubUsername": "octocat"
+    },
+    {
+      "uuid": "e2",
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "role": "DevRel",
+      "gitHubUsername": "alicesmith"
+    }
+  ],
+  "repositories": [
+    {
+      "uuid": "r1",
+      "org": "OpenElements",
+      "repository": "open-elements-website"
+    },
+    {
+      "uuid": "r2",
+      "org": "OpenElements",
+      "repository": "open-elements-sdk"
+    }
+  ],
+  "projects": [
+    {
+      "uuid": "p1",
+      "name": "Open Elements SDK",
+      "description": "A TypeScript SDK to interact with Open Elements APIs.",
+      "svgLogoForBrightBackground": "sdk-logo-light.svg",
+      "svgLogoForDarkBackground": "sdk-logo-dark.svg",
+      "pngLogoForBrightBackground": "sdk-logo-light.png",
+      "pngLogoForDarkBackground": "sdk-logo-dark.png",
+      "matchingRepos": [
+        "open-elements-sdk"
+      ]
+    }
+  ],
+  "pullrequests": [
+    {
+      "uuid": "e1",
+      "org": "OpenElements",
+      "repository": "open-elements-sdk",
+      "gitHubId": 1001,
+      "title": "Add authentication support",
+      "createdAtInGitHub": "2025-03-23T21:03:13.123Z",
+      "lastUpdateInGitHub": "2025-03-24T12:45:00.000Z",
+      "open": true,
+      "merged": false,
+      "author": "octocat"
+    }
+  ]
+}
