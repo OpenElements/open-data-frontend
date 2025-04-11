@@ -3,6 +3,7 @@ import EmployeesTable from "./components/EmployeesTable";
 import ProjectsTable from "./components/ProjectsTable";
 import RepositoriesTable from "./components/RepositoriesTable";
 import PullRequestsTable from "./components/PullRequestsTable";
+import MergedPRsPerProject from "./components/MergedPRsPerProject.jsx";
 
 export default function App() {
   return (
@@ -51,6 +52,16 @@ export default function App() {
           >
             Pull Requests
           </NavLink>
+          <NavLink
+              to="/prs-by-project"
+              className={({ isActive }) =>
+                  `px-4 py-2 border-b-2 ${
+                      isActive ? "border-blue-600 text-blue-600 font-semibold" : "border-transparent text-gray-500 hover:text-blue-600"
+                  }`
+              }
+          >
+            Merged PRs pro Projekt
+          </NavLink>
         </nav>
 
         <Routes>
@@ -58,6 +69,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsTable />} />
           <Route path="/repositories" element={<RepositoriesTable />} />
           <Route path="/pullrequests" element={<PullRequestsTable />} />
+          <Route path="/prs-by-project" element={<MergedPRsPerProject />} />
           <Route path="*" element={<EmployeesTable />} />
         </Routes>
       </div>

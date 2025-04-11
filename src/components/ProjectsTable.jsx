@@ -18,8 +18,7 @@ export default function ProjectsTable() {
         data={data}
         columns={[
           { key: "name", label: "Name" },
-          { key: "description", label: "Beschreibung" },
-          { key: "matchingRepos", label: "Repos" }
+          { key: "description", label: "Beschreibung" }
         ]}
       />
     </div>
