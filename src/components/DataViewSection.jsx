@@ -9,7 +9,7 @@ export default function DataViewSection({ title, description, data, columns }) {
   return (
       <div className="mb-8">
         <div>
-          <h2 className="text-xl font-bold mb-2">{title}</h2>
+          <h2 className="text-xl font-bold mb-2">{title} ({data.length})</h2>
           <p className="text-gray-600 mb-6">{description}</p>
         </div>
         <div className="mb-8 max-w-6xl mx-auto">
