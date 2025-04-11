@@ -19,6 +19,7 @@ export default function PullRequestsTable() {
         columns={[
           { key: "title", label: "Titel" },
           { key: "author", label: "Autor" },
+          { key: "org", label: "Org" },
           { key: "repository", label: "Repo" },
           {
             key: "createdAtInGitHub",
