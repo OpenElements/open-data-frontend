@@ -7,6 +7,7 @@ import MergedPRsPerProjectView from "./views/MergedPRsPerProjectView.jsx";
 import SupportAndCarePrsView from "./views/SupportAndCarePrsView.jsx";
 
 import NavItem from "./components/NavItem.jsx";
+import OrganizationView from "./views/OrganizationView.jsx";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <NavItem
                 label="Allgemein"
                 items={[
+                  { to: "/organizations", label: "Organisationen" },
                   { to: "/employees", label: "Mitarbeitende" },
                   { to: "/projects", label: "Projekte" },
                 ]}
@@ -37,6 +39,7 @@ export default function App() {
           </nav>
 
           <Routes>
+            <Route path="/organizations" element={<OrganizationView />} />
             <Route path="/employees" element={<EmployeesView />} />
             <Route path="/projects" element={<ProjectsView />} />
             <Route path="/repositories" element={<RepositoriesView />} />

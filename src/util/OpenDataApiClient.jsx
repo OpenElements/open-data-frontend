@@ -27,6 +27,7 @@ export default class OpenDataApiClient {
     }
   }
 
+
   async getSupportAndCarePullRequests() {
     const prsPromise = this.getPullRequests();
     const projectsPromise = this.getProjects();
@@ -100,6 +101,10 @@ export default class OpenDataApiClient {
 
   async getRepositories() {
     return this.getJson("repositories");
+  }
+
+  async getOrganizations() {
+    return this.getJson("organizations");
   }
 
 }
