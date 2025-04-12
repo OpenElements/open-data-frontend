@@ -42,28 +42,20 @@ export default class OpenDataApiClient {
       const filteredProjects = projects.filter((project) =>
           SPECIAL_PROJECT_UUIDS.includes(project.uuid)
       );
+      const relevantPatterns = filteredProjects
+      .flatMap((project) => project.matchingRepos || []);
 
-      return Promise.all([prsPromise, projectsPromise]).then(([prs, projects]) => {
-        const relevantProjects = projects.filter((project) =>
-            SPECIAL_PROJECT_NAMES.includes(project.name)
-        );
+      const filteredPRs = prs.filter(
+          (pr) => relevantPatterns.some((pattern) => matchesPR(pattern, pr)) &&
+              new Date(pr.lastUpdateInGitHub) >= new Date("2024-12-01")
+      );
 
-        const relevantPatterns = relevantProjects
-        .flatMap((project) => project.matchingRepos || []);
-
-        const filteredPRs = prs.filter(
-            (pr) =>
-                pr.merged === true &&
-                relevantPatterns.some((pattern) => matchesPR(pattern, pr))
-        );
-
-        return filteredPRs.map((pr) => ({
+      return filteredPRs.map((pr) => ({
           title: pr.title,
-              lastUpdateInGitHub: pr.lastUpdateInGitHub,
-              merged: pr.merged,
+          lastUpdateInGitHub: pr.lastUpdateInGitHub,
+          state: pr.merged ? "merged" : pr.open ? "open" : "closed",
           link: `https://github.com/${pr.org}/${pr.repository}/pull/${pr.gitHubId}`
-        }));
-      });
+      }));
     });
   }
 
