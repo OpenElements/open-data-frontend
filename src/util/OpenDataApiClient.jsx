@@ -27,6 +27,45 @@ export default class OpenDataApiClient {
     }
   }
 
+  async getSupportAndCarePullRequests() {
+    const prsPromise = this.getPullRequests();
+    const projectsPromise = this.getProjects();
+
+    const SPECIAL_PROJECT_UUIDS = [
+      "Project-support-and-care",
+      "Project-maven",
+      "Project-maven-plugins",
+    ];
+
+    return Promise.all([prsPromise, projectsPromise]).then(([prs, projects]) => {
+      const filteredProjects = projects.filter((project) =>
+          SPECIAL_PROJECT_UUIDS.includes(project.uuid)
+      );
+
+      return Promise.all([prsPromise, projectsPromise]).then(([prs, projects]) => {
+        const relevantProjects = projects.filter((project) =>
+            SPECIAL_PROJECT_NAMES.includes(project.name)
+        );
+
+        const relevantPatterns = relevantProjects
+        .flatMap((project) => project.matchingRepos || []);
+
+        const filteredPRs = prs.filter(
+            (pr) =>
+                pr.merged === true &&
+                relevantPatterns.some((pattern) => matchesPR(pattern, pr))
+        );
+
+        return filteredPRs.map((pr) => ({
+          title: pr.title,
+              lastUpdateInGitHub: pr.lastUpdateInGitHub,
+              merged: pr.merged,
+          link: `https://github.com/${pr.org}/${pr.repository}/pull/${pr.gitHubId}`
+        }));
+      });
+    });
+  }
+
   async getMergedPullRequestsPerProject() {
    let prs = this.getPullRequests();
    let projects = this.getProjects();

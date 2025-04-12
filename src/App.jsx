@@ -4,6 +4,8 @@ import ProjectsView from "./views/ProjectsView.jsx";
 import RepositoriesView from "./views/RepositoriesView.jsx";
 import PullRequestsView from "./views/PullRequestsView.jsx";
 import MergedPRsPerProjectView from "./views/MergedPRsPerProjectView.jsx";
+import SupportAndCarePrsView from "./views/SupportAndCarePrsView.jsx";
+
 import NavItem from "./components/NavItem.jsx";
 
 export default function App() {
@@ -29,6 +31,7 @@ export default function App() {
                   { to: "/repositories", label: "Repositories" },
                   { to: "/pullrequests", label: "Pull Requests" },
                   { to: "/prs-by-project", label: "Merged PRs pro Projekt" },
+                  { to: "/support-care-prs", label: "Support & Care PRs" },
                 ]}
             />
           </nav>
@@ -39,6 +42,7 @@ export default function App() {
             <Route path="/repositories" element={<RepositoriesView />} />
             <Route path="/pullrequests" element={<PullRequestsView />} />
             <Route path="/prs-by-project" element={<MergedPRsPerProjectView />} />
+            <Route path="/support-care-prs" element={<SupportAndCarePrsView />} />
             <Route path="*" element={<EmployeesView />} />
           </Routes>
         </div>
