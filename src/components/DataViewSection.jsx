@@ -3,9 +3,8 @@ import ExportJSONButton from "./ExportJSONButton";
 import SortableTable from "./SortableTable";
 
 export default function DataViewSection({ title, description, data, columns }) {
-  const csvColumns = columns.filter(col => col.csv);
-  const tableColumns = columns.filter(col => col.table);
-
+  const csvColumns = columns.filter(col => !col.hideInCsv);
+  const tableColumns = columns.filter(col => !col.hideInTable);
   return (
       <div className="mb-8">
         <div>

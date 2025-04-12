@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import OpenDataApiClient from "../util/OpenDataApiClient.jsx";
 import DataViewSection from "../components/DataViewSection.jsx";
+import {formatLink} from "../util/Formatters.jsx";
 
 export default function OrganizationView() {
   const [data, setData] = useState([]);
 
   const columns = [
-    { key: "name", label: "Name", table: true, csv: true },
-    { key: "legalName", label: "Rechlicher Name", table: true, csv: true },
-    { key: "streetAddress", label: "Strasse", table: true, csv: false },
-    { key: "postalCode", label: "Postleitzahl", table: true, csv: false },
-    { key: "city", label: "Stadt", table: true, csv: false },
-    { key: "country", label: "Land", table: true, csv: false },
-    { key: "email", label: "E-Mail-Adresse", table: true, csv: false },
-    { key: "telephone", label: "Telefonnummer", table: true, csv: false },
-    { key: "founder", label: "Gründer", table: true, csv: false },
-    { key: "registerNumber", label: "Registernummer", table: true, csv: false },
-    { key: "registerCourt", label: "Handelsregister", table: true, csv: false },
-    { key: "vatNumber", label: "Umsatzsteuer-ID", table: true, csv: false },
-    { key: "url", label: "Webseite", table: true, csv: false }
+    { key: "name", label: "Name"},
+    { key: "legalName", label: "Rechlicher Name"},
+    { key: "streetAddress", label: "Strasse"},
+    { key: "postalCode", label: "Postleitzahl"},
+    { key: "city", label: "Stadt"},
+    { key: "country", label: "Land"},
+    { key: "email", label: "E-Mail-Adresse"},
+    { key: "telephone", label: "Telefonnummer"},
+    { key: "founder", label: "Gründer"},
+    { key: "registerNumber", label: "Registernummer"},
+    { key: "registerCourt", label: "Handelsregister"},
+    { key: "vatNumber", label: "Umsatzsteuer-ID"},
+    { key: "url", label: "Webseite", tableFormat: formatLink }
   ];
   const viewTitle = "Organisation";
   const viewDescription = "Alle Informationen zu Open Elements.";

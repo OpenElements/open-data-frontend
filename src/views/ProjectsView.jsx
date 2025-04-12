@@ -6,8 +6,8 @@ export default function ProjectsView() {
   const [data, setData] = useState([]);
 
   const columns = [
-    { key: "name", label: "Name", table: true, csv: true  },
-    { key: "description", label: "Beschreibung", table: true, csv: true  }
+    { key: "name", label: "Name"},
+    { key: "description", label: "Beschreibung"}
   ];
   const viewTitle = "Projekte";
   const viewDescription = "Open Source Projekte an denen Open Elements beteiligt ist.";

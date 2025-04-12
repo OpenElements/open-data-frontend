@@ -66,8 +66,8 @@ export default function SortableTable({ data, columns = null }) {
             {keys.map((key) => {
               const col = columns?.find(c => c.key === key);
               const value = item[key];
-              const content = col?.format
-                ? col.format(value, item)
+              const content = col?.tableFormat
+                ? col.tableFormat(value, item)
                 : Array.isArray(value)
                   ? value.join(", ")
                   : value?.toString() ?? "-";

@@ -6,10 +6,10 @@ export default function EmployeesView() {
   const [data, setData] = useState([]);
 
   const columns = [
-    { key: "firstName", label: "Vorname", table: true, csv: true },
-    { key: "lastName", label: "Nachname", table: true, csv: true },
-    { key: "role", label: "Rolle", table: true, csv: false },
-    { key: "gitHubUsername", label: "GitHub", table: true, csv: false },
+    { key: "firstName", label: "Vorname"},
+    { key: "lastName", label: "Nachname"},
+    { key: "role", label: "Rolle"},
+    { key: "gitHubUsername", label: "GitHub"},
   ];
   const viewTitle = "Mitarbeiter";
   const viewDescription = "Alle Mitarbeiter von Open Elements.";

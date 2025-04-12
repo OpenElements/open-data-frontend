@@ -6,8 +6,8 @@ export default function RepositoriesView() {
   const [data, setData] = useState([]);
 
   const columns = [
-    { key: "org", label: "Organisation", table: true, csv: true  },
-    { key: "repository", label: "Repository", table: true, csv: true  }
+    { key: "org", label: "Organisation"},
+    { key: "repository", label: "Repository"}
   ];
   const viewTitle = "Repositories";
   const viewDescription = "Alle GitHub Repositories, an denen Open Elements bisher Contributions (in Form von Pull Requests) geleistet hat.";
