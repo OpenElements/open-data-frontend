@@ -42,5 +42,8 @@
     "backend": "json-server --watch backend/db.json --port 5050"
   },
   "type": "module",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.40.0"
+  }
 }
