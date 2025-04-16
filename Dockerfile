@@ -7,7 +7,9 @@ ARG VITE_API_BASE_URL
 ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 RUN echo "The API URL is '$VITE_API_BASE_URL'"
 
-RUN npm install --omit=optional
+RUN rm -rf node_modules
+RUN rm -rf package-lock.json
+RUN npm install
 RUN npm run build
 
 # Serve with nginx
